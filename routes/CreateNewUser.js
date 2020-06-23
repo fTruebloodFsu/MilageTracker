@@ -7,7 +7,6 @@ const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
 })
 
-
 router.post('/', function(req, res, next) {
     
     const { username, firstname, lastname, email, password, role } = req.body;
