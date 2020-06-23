@@ -38,6 +38,22 @@ function validate(username, password){
     }
 }
 
+async function verifyUser(un, pw){
+    const data = {
+        username: un,
+        password: pw,
+    }
+
+    const newRequest = await fetch('/verifyUserAndPassword', {method:"POST", body: JSON.stringify(data), 
+                                    headers: {"content-type": "application/json"}});
+
+    const results = await newRequest.json();
+    console.log(results);
+    if(results.message === "User Found."){
+        console.log("do something here")
+    }
+}
+
 const Home = () => {
 
     const [name, setName] = useState("");
@@ -45,7 +61,7 @@ const Home = () => {
   
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        alert(`Submitting Name ${name}`);
+        verifyUser(name, password);
     }
 
     let errors = validate(name, password);
