@@ -103,19 +103,24 @@ const CreateAccount = () => {
             <form onSubmit={handleSubmit}>
                 <FormEntry title="First Name" error={errors.FirstName} type="text" value={firstname}
                 function={e => setFirstName(e.target.value)}/>
+                <br></br>
 
                 <FormEntry title="Last Name" error={errors.LastName} type="text" value={lastname}
                 function={e => setLastName(e.target.value)}/>
+                <br></br>
 
                 <FormEntry title="Username" error={errors.UserName} type="text" value={username}
                 function={e => setUserName(e.target.value)}/>
                 <UserNameAvailability uname={username} />
+                <br></br>
 
                 <FormEntry title="Email" error={errors.Email} type="text" value={email}
                 function={e => setEmail(e.target.value)}/>
+                <br></br>
 
                 <FormEntry title="Password" error={errors.PassWord1} type="password" value={password1}
                 function={e => setPassWord1(e.target.value)}/>
+                <br></br>
 
                 <FormEntry title="Repeat Password" error={errors.PassWord2} type="password" value={password2}
                 function={e => setPassWord2(e.target.value)}/>
@@ -123,9 +128,12 @@ const CreateAccount = () => {
                     <div className="errorMessage">*passwords must match</div> :
                     <div></div>}
                 </div>
+                <br></br>
 
                 <FormEntry title="Invitation Code" error={errors.Code} type="text" value={code}
                 function={e => setCode(e.target.value)}/>
+                <br></br>
+
                 <div>
                     {noErrors(errors) && noEmptyFields(firstname, lastname, username, email, password1, password2, code) ?
                     <input type="submit" value="Submit" /> :
