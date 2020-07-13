@@ -18,6 +18,8 @@ router.post('/', function(req, res, next) {
         }else if(data.rows && data.rows.length > 0){
 
             if(bcrypt.compareSync(req.body.password, data.rows[0].password)){
+                res.cookie('NAME', data.rows[0].username);
+                res.cookie('ROLE', data.rows[0].role);
                 res.status(201).send({ message: "User Found.", role: data.rows[0].role })
             }else{
                 res.status(201).send({ message: "Username or password incorrect." })
