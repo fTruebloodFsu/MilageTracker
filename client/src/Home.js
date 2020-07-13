@@ -77,6 +77,7 @@ const Home = () => {
             <form onSubmit={handleSubmit}>
                 <FormEntry title="Username" error={errors.UserName} type="text" value={name}
                 function={e => setName(e.target.value)}/>
+                <br></br>
 
                 <FormEntry title="Password" error={errors.PassWord} type="password" value={password}
                 function={e => setPassword(e.target.value)}/>
