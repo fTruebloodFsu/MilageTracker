@@ -35,3 +35,20 @@
   color: red;
   font-size: x-small;
 }
+
+.navStyle {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: left;
+  min-height: 10vh;
+  background-color: Black;
+  color: White;
+  padding-top: 2.5vh;
+}
+
+.nav-Link {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style: none;
+}
