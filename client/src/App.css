@@ -19,6 +19,17 @@
   color: black;
 }
 
+.App-header-smaller-text {
+  background-color: #ffffff;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12pt;
+  color: black;
+}
+
 .App-link {
   color: blue;
 }
