@@ -37,13 +37,14 @@ function noErrors(obj){
     return true;
 }
 
-function validate(un, date, start, end){
+function validate(un, date, start, end, car){
 
   return{
     UserName: validInputUn(un),
     Date: vaildInputDate(date),
     StartMiles: validInputStartMiles(start),
     EndMiles: validInputEndMiles(end),
+    Vehicle: validInputUn(car),
   }
 }
 
@@ -74,20 +75,47 @@ function validInputEndMiles(s){
   return !expression.test(String(s).toLowerCase())
 }
 
+async function beginTrip(userName, date, startMileage, endMileage, car){
+
+  let totalMileage = "";
+  if(endMileage !== ""){
+    totalMileage = (endMileage - startMileage) + "";
+  }
+  
+  const data = {
+      username: userName,
+      date: date,
+      tripstart: startMileage,
+      tripend: endMileage,
+      vehicle: car,
+      triptotal: totalMileage,
+  }
+
+  const newRequest = await fetch('/startTrip', {method:"POST", body: JSON.stringify(data), 
+                                  headers: {"content-type": "application/json"}});
+
+  const results = await newRequest.json();
+  console.log(results);
+  if(results.message === "Success"){
+    alert("Trip Entered")
+  }
+}
+
 const StartTrip = () => {
 
     const [date, setDate] = useState('');
+    const [car, setCar] = useState('');
     const [startMileage, setStartMileage] = useState('');
     const [endMileage, setEndMileage] = useState('');
     const [userName, setUserName] = useState(getCookieByName(document.cookie, "NAME"));
     const [role, setRole] = useState(getCookieByName(document.cookie, "ROLE"));
 
     const handleSubmit = (evt) => {
-      alert("here")
       evt.preventDefault();
+      beginTrip(userName, date, startMileage, endMileage, car)
     }
 
-    let errors = validate(userName, date, startMileage, endMileage);
+    let errors = validate(userName, date, startMileage, endMileage, car);
 
     return(
         <div>
@@ -95,13 +123,18 @@ const StartTrip = () => {
             <div>Please Log In</div> :
             <div className='App-header-smaller-text'>
               <h2 >Hello, {userName}!</h2>
-              <div>To begin your trip enter the date and your odometer reading.</div>
+              <div>To begin your trip enter the date, vehicle, odometer reading.</div>
               <div>The end reading can be entered now, or at the end of your day.</div>
+              <br></br>
               
               <form className='App-header-smaller-text' onSubmit={handleSubmit}>
 
                 <FormEntry title="Date" error={errors.Date} type="date" value={date}
                 function={e => setDate(e.target.value)}/>
+                <br></br>
+
+                <FormEntry title="Vehicle" error={errors.Vehicle} type="text" value={car}
+                function={e => setCar(e.target.value)}/>
                 <br></br>
 
                 <FormEntry title="Start Mileage" error={errors.StartMiles} type="text" value={startMileage}
@@ -113,7 +146,8 @@ const StartTrip = () => {
                 <br></br>
                 
                 <div>
-                  {noErrors(errors) && noEmptyFields(userName, date, startMileage, endMileage)?
+                  {noErrors(errors) && noEmptyFields(userName, date, startMileage, car) && 
+                  ((parseInt(endMileage) > parseInt(startMileage) || endMileage === ""))?
                   <input type="submit" value="Submit" /> :
                   <div></div>
                   }
