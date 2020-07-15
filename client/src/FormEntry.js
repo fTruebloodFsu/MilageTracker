@@ -8,7 +8,7 @@ const FormEntry = (props) => {
         <label>
             <Container>
                 <Row>
-                    <Col xs="3"><b>{props.title}</b></Col>
+                    <Col xs="5"><b>{props.title}</b></Col>
                     <Col xs="6">
                         <input
                         className={props.error ? "error" : "success"}

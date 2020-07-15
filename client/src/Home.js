@@ -50,7 +50,7 @@ async function verifyUser(un, pw){
     const results = await newRequest.json();
     console.log(results);
     if(results.message === "User Found."){
-        console.log("do something here")
+        console.log(results.UniqueId);
     }
 }
 
@@ -78,7 +78,6 @@ const Home = () => {
                 <FormEntry title="Username" error={errors.UserName} type="text" value={name}
                 function={e => setName(e.target.value)}/>
                 <br></br>
-
                 <FormEntry title="Password" error={errors.PassWord} type="password" value={password}
                 function={e => setPassword(e.target.value)}/>
 
@@ -90,6 +89,7 @@ const Home = () => {
                     }
                 </div>
                 <br></br>
+                <div>Log in or, </div>
                 <Link to="/CreateAccount">Create Account</Link>
             </form>
         </div>
