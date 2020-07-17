@@ -4,6 +4,7 @@ import Home from './Home.js'
 import CreateAccount from './CreateAccount.js'
 import StartTrip from './StartATrip.js'
 import MyNavBar from './NavBar.js'
+import EndATrip from './EndATrip.js'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path='/' exact component={Home} />
             <Route path='/CreateAccount' component={CreateAccount} />
             <Route path='/StartATrip' component={StartTrip} />
+            <Route path='/EndATrip' component={EndATrip}/>
           </Switch>
       </Router>
     </div>

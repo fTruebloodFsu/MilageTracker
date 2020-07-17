@@ -21,6 +21,7 @@ function MyNavBar(target){
             <DropdownMenu>
               <DropdownItem header><Link style={navStyle} to='/'>Home</Link></DropdownItem>
               <DropdownItem header><Link style={navStyle} to='/StartATrip'>Begin Trip</Link></DropdownItem>
+              <DropdownItem header><Link style={navStyle} to='/EndATrip'>End Trip</Link></DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
         </div>
