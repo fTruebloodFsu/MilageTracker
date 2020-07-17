@@ -1,6 +1,5 @@
 var Pool = require('pg').Pool
 var express = require('express');
-const bcrypt = require('bcrypt');
 var router = express.Router();
 
 const pool = new Pool({
