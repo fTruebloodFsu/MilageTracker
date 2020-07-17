@@ -63,3 +63,19 @@
   align-items: center;
   list-style: none;
 }
+
+.container-results-end-trips {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 10vh;
+  padding: 2vh;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
