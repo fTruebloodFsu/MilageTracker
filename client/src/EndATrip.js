@@ -19,57 +19,6 @@ const getCookieByName = (cookie, s) => {
     return result;
   }
 
-
-//   const DisplayExistingTrips = (props) => {
-
-//     return(
-//         <div className="container-results-end-trips">
-//             <Container id={props.id}>
-//                 <Row>
-//                     <Col xs="3"><b>{props.date}</b></Col>
-//                 </Row>
-//                 <Row>
-//                     <Col xs="3">{props.username}</Col>
-//                     <Col xs="3">{props.vehicle}</Col>
-//                 </Row>
-//                 <Row>
-//                     <Col xs="3">Start mileage: {props.tripstart}</Col>
-//                     <Col xs="3">
-//                         <Button color="primary" size="sm" onClick={()=>finishTrip(props.id, props.tripstart)}>End Trip</Button>
-//                     </Col>
-//                 </Row>
-//             </Container>
-//             <br></br>
-//         </div>
-//     );
-//   }
-
-//   const finishTrip = (id, start) => {
-//     const end = prompt("Enter your odometer reading to end this trip: ")
-    
-//     if(start > end){
-//         alert("Beginning read cannot be greater than the end reading.")
-//     }else{
-//         const total = (end - start) + ""
-//         updateTrip(id, end, total);
-//     }
-//   }
-
-//   async function updateTrip(id, end, total){
-//     const data = {
-//         id: id,
-//         tripend: end,
-//         triptotal: total,
-//     }
-
-//     const newRequest = await fetch('/UpdateTrip', {method:"POST", body: JSON.stringify(data), 
-//                                     headers: {"content-type": "application/json"}});
-
-//     const results = await newRequest.json();
-    
-//     return results;
-//     }
-
   const EndATrip = () => {
 
     const [userName, setUserName] = useState(getCookieByName(document.cookie, "NAME"));
