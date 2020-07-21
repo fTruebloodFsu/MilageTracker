@@ -12,6 +12,7 @@ var VerifyUserRouter = require('./routes/verifyUserAndPassword');
 var beginTripRouter = require('./routes/startTrip');
 var TripsWithNoEndRouter = require('./routes/TripsWithNoEnd');
 var UpdateTripRouter = require('./routes/UpdateTrip');
+var TripsByDateAndUserRouter = require('./routes/GetTripsByDateAndUser');
 
 var app = express();
 
@@ -32,7 +33,8 @@ app.use('/CheckUserNameAvailability', CheckAvailabiltyRouter);
 app.use('/verifyUserAndPassword', VerifyUserRouter);
 app.use('/startTrip', beginTripRouter);
 app.use('/TripsWithNoEnd', TripsWithNoEndRouter);
-app.use('/UpdateTrip', UpdateTripRouter)
+app.use('/UpdateTrip', UpdateTripRouter);
+app.use('/GetTripsByDateAndUser', TripsByDateAndUserRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
