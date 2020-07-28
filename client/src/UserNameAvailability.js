@@ -31,7 +31,7 @@ const UserNameAvailability = (uname) => {
     return(
         <div>
             {availability ?
-            <div className="errorMessage">*username taken</div> :
+            <div className="errorMessage">*username exists.</div> :
             <div></div>}
         </div>
     );
